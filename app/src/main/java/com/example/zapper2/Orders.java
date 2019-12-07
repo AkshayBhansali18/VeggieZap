@@ -1,6 +1,7 @@
 package com.example.zapper2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -34,6 +35,7 @@ public class Orders extends AppCompatActivity {
         setContentView(R.layout.activity_orders);
         listView=findViewById(R.id.listView);
         Context context;
+        Intent intent2=getIntent();
         FirebaseFirestore db=FirebaseFirestore.getInstance();
         db.collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
@@ -43,7 +45,7 @@ public class Orders extends AppCompatActivity {
                    String orderno= queryDocumentSnapshot.get("orderno").toString();
                    String item=queryDocumentSnapshot.get("items").toString();
                    String datetime=queryDocumentSnapshot.get("datetime").toString();
-                   String amount=queryDocumentSnapshot.get("amount").toString();
+                   String amount=queryDocumentSnapshot.get("total").toString();
                    String docid=queryDocumentSnapshot.getId();
                    ids.add(docid);
                    orders.add(orderno);
@@ -59,7 +61,7 @@ public class Orders extends AppCompatActivity {
                    else
                        images.add(R.drawable.ic_access_time_black_24dp);
                        status.add("No");
-                   break;
+                    break;
 
                 }
                 setupadapter();
@@ -79,9 +81,10 @@ public class Orders extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-              //  Intent intent=new Intent(Orders.this,ViewOrder.class);
-              //  intent.putExtra("docid",ids.get(position));
-               // startActivity(intent);
+                Intent intent=new Intent(Orders.this,ViewOrder.class);
+                intent.putExtra("docid",ids.get(position));
+                intent.putExtra("pos",String.valueOf(position));
+                startActivity(intent);
             }
         });
     }

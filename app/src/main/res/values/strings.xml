@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Zapper2</string>
+    <string name="title_activity_view_order">Map</string>
 </resources>
