@@ -40,6 +40,7 @@ public class Orders extends AppCompatActivity {
         db.collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+               int c=0;
                 for (QueryDocumentSnapshot queryDocumentSnapshot:queryDocumentSnapshots)
                 {
                    String orderno= queryDocumentSnapshot.get("orderno").toString();
@@ -48,6 +49,7 @@ public class Orders extends AppCompatActivity {
                    String amount=queryDocumentSnapshot.get("total").toString();
                    String docid=queryDocumentSnapshot.getId();
                    ids.add(docid);
+                   c=c+1;
                    orders.add(orderno);
                    items.add(item);
                    datetimes.add(datetime);
@@ -61,10 +63,12 @@ public class Orders extends AppCompatActivity {
                    else
                        images.add(R.drawable.ic_access_time_black_24dp);
                        status.add("No");
-                    break;
+
+
 
                 }
                 setupadapter();
+
 
             }
         });
