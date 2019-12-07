@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -28,12 +29,20 @@ public class Orders extends AppCompatActivity {
     final ArrayList<String> datetimes=new ArrayList<>();
     final ArrayList<String> amounts=new ArrayList<>();
     ArrayList<String> ids=new ArrayList<>();
+    FloatingActionButton addProducts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orders);
         listView=findViewById(R.id.listView);
+        addProducts = findViewById(R.id.addProducts);
+        addProducts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Orders.this, ProductsActivity.class));
+            }
+        });
         Context context;
         Intent intent2=getIntent();
         FirebaseFirestore db=FirebaseFirestore.getInstance();
@@ -75,7 +84,7 @@ public class Orders extends AppCompatActivity {
         CircleImageView dp=findViewById(R.id.dp);
         dp.setImageResource(R.drawable.ic_person_black_24dp);
         TextView zappername=findViewById(R.id.zappername);
-        zappername.setText("Zapper Name: Buyya");
+        zappername.setText("Zapper Name: test");
 
     }
 

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="Add Product:"
+        android:textSize="20dp"
+        android:layout_marginTop="9dp"
+        android:id="@+id/TextViewAddProduct"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/TextViewAddProduct"
+        android:id="@+id/EditTextAddProduct"
+        android:textSize="20dp"
+        android:hint="Enter the product"
+        android:textColorHint="#696868"
+        android:layout_marginStart="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textSize="20dp"
+        android:layout_below="@+id/TextViewAddProduct"
+        android:text="Add Price:"
+        android:layout_marginTop="28dp"
+        android:id="@+id/TextViewAddPrice"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:layout_toRightOf="@+id/TextViewAddPrice"
+        android:layout_below="@+id/TextViewAddProduct"
+        android:hint="Enter the price"
+        android:textColorHint="#696868"
+        android:textSize="20dp"
+        android:layout_marginStart="5dp"
+        android:id="@+id/EditTextAddPrice"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD"
+        android:layout_below="@+id/TextViewAddPrice"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentStart="true"
+        android:id="@+id/AddYes"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CANCEL"
+        android:layout_below="@+id/TextViewAddPrice"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/AddCancel"/>
+
+</RelativeLayout>
